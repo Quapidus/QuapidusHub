@@ -1,0 +1,66 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+local Window = Library.CreateLib("Focused", "DarkTheme")[Translate↓]
+
+local Tab = Window:NewTab("QuautoParry")[Translate↓]
+
+local Section = Tab:NewSection("AutoParryByQuap")[Translate↓]
+
+Section:NewButton("spambuton", "spambutton", function()
+--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk![Translate↓]
+]]
+local gui, frame, button = Instance.new("ScreenGui", game.CoreGui), Instance.new("Frame"), Instance.new("TextButton")[Translate↓]
+gui.ResetOnSpawn = false
+frame.Size, frame.Position, frame.BackgroundColor3, frame.BorderSizePixel, frame.Active, frame.Draggable, frame.Parent = UDim2.new(0, 150, 0, 75), UDim2.new(0, 10, 0, 10), Color3.new(0, 0, 0), 0, true, true, gui[Translate↓]
+button.Text, button.Size, button.Position, button.BackgroundColor3, button.BorderColor3, button.BorderSizePixel, button.Font, button.TextColor3, button.TextSize, button.Parent = "Manual spam", UDim2.new(1, -20, 1, -20), UDim2.new(0, 10, 0, 10), Color3.new(0, 0, 0), Color3.new(), 2, Enum.Font.SourceSans, Color3.new(1, 1, 1), 16, frame[Translate↓]
+
+local activated = false[Translate↓]
+
+local function toggle()
+    activated, button.Text = not activated, activated and "Off" or "On"[Translate↓]
+    
+    while activated do
+        local args = {1.5, CFrame.new(-254.29, 112.14, -119.27) * CFrame.Angles(-2.03, 0.57, 2.31), {["2617721424"] = Vector3.new(-273.40, -724.80, -20.92)}, {910, 154}}[Translate↓]
+        game:GetService("ReplicatedStorage").Remotes.ParryAttempt:FireServer(unpack(args))
+        game:GetService("RunService").Heartbeat:Wait()
+        button.BorderColor3 = Color3.new(math.random(), math.random(), math.random())[Translate↓]
+    end
+end
+
+local function showNotification()
+    game.StarterGui:SetCore("SendNotification", {Title = "Manual Spam", Text = "Made By Quapidus", Duration = 5})[Translate↓]
+end
+
+button.MouseButton1Click:Connect(function()
+    toggle()
+    showNotification()
+end)
+end)
+
+Section:NewButton("autoparry", "autoparry", function()
+--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk![Translate↓]
+]]
+getgenv().config = getgenv().config or {[Translate↓]
+	hit_time = 0.5, -- // recommended 0.25 to 0.75 \\ --[Translate↓]
+	
+	mode = 'Always', -- // Hold , Toggle , Always \\ --[Translate↓]
+	deflect_type = 'Remote', -- // Key Press , Remote \\ --[Translate↓]
+	notifications = true,
+	keybind = Enum.KeyCode.V
+}
+
+Section:NewButton("ANTI AFK", "ButtonInfo", function()[Translate↓]
+loadstring(game:HttpGet("https://raw.githubusercontent.com/batusz/main/roblox/__Anti__Afk__Script__", true))()
+end)
+
+Section:NewButton("redcircle", "ButtonInfo", function()
+    --[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk![Translate↓]
+]]
+loadstring(game:HttpGet("https://raw.githubusercontent.com/1f0yt/community/main/AutoBlock"))()
+end)
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3ABlade%20Ball%20Parry%20V4.0.0",true))()
+end)[Translate↓]
